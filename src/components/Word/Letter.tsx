@@ -1,5 +1,4 @@
 import { Box, styled, Typography, useTheme } from "@mui/material";
-
 import type { FunctionComponent } from "react";
 import { Status } from "../../constants";
 

@@ -62,6 +62,7 @@ const Home = () => {
       actionListener.removeListener(APPEND_LETTER_ACTION_NAME);
       actionListener.removeListener(REMOVE_LETTER_ACTION_NAME);
       actionListener.removeListener(CHECK_WORD_ACTION_NAME);
+      actionListener.removeListener(CLEAR_WORD_ACTION_NAME);
     };
   }, [letters]);
 
