@@ -1,5 +1,5 @@
 import { Box } from "@mui/material";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import Keyboard from "../../components/Keyboard";
 import Title from "../../components/Title";
@@ -17,6 +17,8 @@ import { actionListener } from "../../utils/MyActionListener";
 const MAX_LENGTH = 5;
 const NO_WORDS_FOUND = "No Definitions Found";
 
+const MKeyboard = memo(Keyboard);
+
 const Home = () => {
   const [letters, setLetters] = useState<Array<string>>([]);
   const [wordState, setWordState] = useState<Status>(Status.Idle);
@@ -33,6 +35,8 @@ const Home = () => {
   };
 
   const checkWord = async () => {
+    console.log("enter pressed");
+
     if (letters.length === MAX_LENGTH) {
       const word = letters.join("");
       const result = await fetchWordData(word);
@@ -77,7 +81,7 @@ const Home = () => {
     >
       <Title />
       <Word letters={letters} wordState={wordState} />
-      <Keyboard />
+      <MKeyboard />
     </Box>
   );
 };
